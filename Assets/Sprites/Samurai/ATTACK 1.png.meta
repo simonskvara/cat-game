@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fd64d276b5ce5e146978989fb2469f57
+guid: e561cd39c71f0aa4bafc1289ab9b6bd1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,169 +97,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Meow-Knight_Run_0
+      name: ATTACK 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 188
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 42
+        y: 15
+        width: 21
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d07cc28264e268a40989c05484c0b850
-      internalID: -612544801
+      spriteID: 7877f825d99f72b43aa213a8d3267580
+      internalID: -2048307084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meow-Knight_Run_1
+      name: ATTACK 1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 147
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 138
+        y: 15
+        width: 21
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c2a72e92a4c7604d825502745a2cbe9
-      internalID: -682518014
+      spriteID: 4985648db1c5ff84a9d252c37e819d4c
+      internalID: -882246894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meow-Knight_Run_2
+      name: ATTACK 1_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 120
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 234
+        y: 15
+        width: 20
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 589e114123302ee4d828128ab60c5b8f
-      internalID: -2080890247
+      spriteID: 44397287ea870e14eb86bd0c1024199d
+      internalID: 526960317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meow-Knight_Run_3
+      name: ATTACK 1_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 93
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 330
+        y: 15
+        width: 20
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83f8a0145532df24fb1b5811f65168cb
-      internalID: 228191857
+      spriteID: 30743c91c00c3c24a9f974a6b0670267
+      internalID: -767850054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meow-Knight_Run_4
+      name: ATTACK 1_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 68
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 421
+        y: 14
+        width: 56
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13c322c333b83ac499632ef17ddb4177
-      internalID: -983755148
+      spriteID: 1ef04a917b3788448a9238e6bf40295c
+      internalID: -1668732151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meow-Knight_Run_5
+      name: ATTACK 1_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 27
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 516
+        y: 15
+        width: 49
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c791e135de1945d429f900545826749f
-      internalID: 340474166
+      spriteID: a0b508693cfb39b4fa085f37a838a9d2
+      internalID: -661690512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meow-Knight_Run_6
+      name: ATTACK 1_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 612
+        y: 15
+        width: 38
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e912b51783692164cbfe40c85bc3ec08
-      internalID: 97050983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Meow-Knight_Run_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 213
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32eae642577003840872f7b25b71744c
-      internalID: -1897408201
+      spriteID: 9fec62650183bb14f985dc88206294f3
+      internalID: -4658732
       vertices: []
       indices: 
       edges: []
@@ -275,15 +254,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Meow-Knight_Run_0: -612544801
-      Meow-Knight_Run_1: -682518014
-      Meow-Knight_Run_2: -2080890247
-      Meow-Knight_Run_3: 228191857
-      Meow-Knight_Run_4: -983755148
-      Meow-Knight_Run_5: 340474166
-      Meow-Knight_Run_6: 97050983
-      Meow-Knight_Run_7: -1810577179
-      Meow-Knight_Run_8: -1897408201
+      ATTACK 1_0: -2048307084
+      ATTACK 1_1: -882246894
+      ATTACK 1_2: 526960317
+      ATTACK 1_3: -767850054
+      ATTACK 1_4: -1668732151
+      ATTACK 1_5: -661690512
+      ATTACK 1_6: -4658732
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
