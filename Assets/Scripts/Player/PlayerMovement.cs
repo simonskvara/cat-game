@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
+    public float jumpingPower;
     
     public Vector2 MoveDirection { get; private set; }
 
@@ -26,6 +27,17 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ProcessInput();
+
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, jumpingPower);
+        }
+        
+        if (Input.GetKeyUp(KeyCode.Space) && _rb.velocity.y > 0)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0f);
+        }
+        
         Flip();
     }
 
@@ -57,10 +69,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, groundCheckArea, 0, groundCheckLayer);
     }
+
+    
 
 
     private void OnDrawGizmosSelected()
