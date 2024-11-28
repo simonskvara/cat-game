@@ -9,10 +9,14 @@ public class FoodManager : MonoBehaviour
     public FoodContainer foodContainer;
     public List<Transform> foodSpawnPoints;
 
-    [SerializeField] private List<GameObject> _chosenFood;
+    private List<GameObject> _chosenFood;
+
+    public List<GameObject> spawnedFood;
 
     private int _numberOfFoodInScene;
     private int _numberOfFoodPrefabs;
+    
+    public bool AllFoodsCollected { get; private set; }
     
 
     private void Awake()
@@ -43,12 +47,35 @@ public class FoodManager : MonoBehaviour
         _chosenFood = new List<GameObject>();
         for (int i = 0; i < _numberOfFoodInScene; i++)
         {
-            _chosenFood.Add(shuffledFood[i % shuffledFood.Count]);
+            _chosenFood.Add(shuffledFood[i % shuffledFood.Count]); // % allows for duplicates if there is more food spawnpoints than unique foods
         }
 
         for (int i = 0; i < _numberOfFoodInScene; i++)
         {
-            Instantiate(_chosenFood[i], foodSpawnPoints[i].position, Quaternion.identity);
+            GameObject food = Instantiate(_chosenFood[i], foodSpawnPoints[i].position, Quaternion.identity);
+            
+            spawnedFood.Add(food); 
         }
+    }
+
+
+    private bool notified = false;
+    private void Update()
+    {
+        
+        if (AllFoodCollectedCheck())
+        {
+            AllFoodsCollected = true;
+            if (!notified)
+            {
+                Debug.Log("All food collected");
+                notified = true;
+            }
+        }
+    }
+
+    public bool AllFoodCollectedCheck()
+    {
+        return spawnedFood.Count == 0;
     }
 }
