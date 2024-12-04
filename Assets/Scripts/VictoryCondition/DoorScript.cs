@@ -25,7 +25,7 @@ public class DoorScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (_foodManager.AllFoodsCollected)
+        if (other.CompareTag("Player") && _foodManager.AllFoodsCollected)
         {
             bubbleAnimator.SetBool("BubbleOpen", true);
         }
@@ -33,7 +33,7 @@ public class DoorScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (_foodManager.AllFoodsCollected)
+        if (other.CompareTag("Player") && _foodManager.AllFoodsCollected)
         {
             bubbleAnimator.SetBool("BubbleOpen", false);
         }
