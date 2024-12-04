@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _isFacingRight = true;
 
+    private bool _canMove = true;
+
     [Header("Ground Check")] 
     public Transform groundCheck;
     public Vector2 groundCheckArea;
@@ -37,8 +39,11 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0f);
         }
-        
-        Flip();
+
+        if (_canMove)
+        {
+            Flip();
+        }
     }
 
     private void FixedUpdate()
@@ -55,6 +60,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
+        if (!_canMove)
+        {
+            return;
+        }
         _rb.velocity = new Vector2(MoveDirection.x * moveSpeed, _rb.velocity.y);
     }
 
@@ -74,8 +83,21 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapBox(groundCheck.position, groundCheckArea, 0, groundCheckLayer);
     }
 
-    
+    public void StopMovement()
+    {
+        _rb.velocity = Vector2.zero;
+        _canMove = false;
+    }
 
+    public void ResumeMovement()
+    {
+        _canMove = true;
+    }
+
+    public bool CanMove()
+    {
+        return _canMove;
+    }
 
     private void OnDrawGizmosSelected()
     {

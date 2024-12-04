@@ -16,6 +16,13 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public float attackRange;
     public LayerMask enemyLayer;
+
+    [Header("Combo")] 
+    public int maxCombo = 3;
+
+    public int CurrentCombo;
+    private float comboTimer;
+    public float comboResetTime = 1f;
     
     void Start()
     {
@@ -28,14 +35,33 @@ public class PlayerCombat : MonoBehaviour
         {
             OnAttack();
         }
+        
+        if (CurrentCombo > 0)
+        {
+            comboTimer += Time.deltaTime;
+            if (comboTimer > comboResetTime)
+            {
+                ResetCombo();
+            }
+        }
+        
     }
 
 
     private void OnAttack()
     {
         IsAttacking = true;
-    }
+        
+        comboTimer = 0f; // Reset the combo timer
 
+        CurrentCombo++;
+        if (CurrentCombo > maxCombo)
+        {
+            CurrentCombo = 1; // Loop back to the first attack
+        }
+    }
+    
+    /// <remarks>Called through animation events</remarks>
     public void Attack()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
@@ -53,6 +79,11 @@ public class PlayerCombat : MonoBehaviour
         IsAttacking = false;
     }
 
+    private void ResetCombo()
+    {
+        CurrentCombo = 0;
+    }
+    
     private void OnDrawGizmosSelected()
     {
         if (attackPoint == null)

@@ -295,8 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367de5e21060db84e895484713f0839b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 0}
-  playerCombat: {fileID: 0}
+  playerMovement: {fileID: 5532120538993913226}
+  playerCombat: {fileID: 4979075668548053362}
   animator: {fileID: 7779473592959961643}
 --- !u!114 &5532120538993913226
 MonoBehaviour:
@@ -335,3 +335,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
+  maxCombo: 3
+  CurrentCombo: 0
+  comboResetTime: 2

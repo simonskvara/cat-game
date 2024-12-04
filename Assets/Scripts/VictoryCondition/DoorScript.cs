@@ -22,4 +22,20 @@ public class DoorScript : MonoBehaviour
             doorAnimator.SetBool("OpenDoor", true);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (_foodManager.AllFoodsCollected)
+        {
+            bubbleAnimator.SetBool("BubbleOpen", true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (_foodManager.AllFoodsCollected)
+        {
+            bubbleAnimator.SetBool("BubbleOpen", false);
+        }
+    }
 }
