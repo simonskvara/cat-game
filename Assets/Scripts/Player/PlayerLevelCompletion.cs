@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLevelCompletion : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PlayerLevelCompletion : MonoBehaviour
     private void CompleteLevel()
     {
         _pressedComplete = true;
+        SceneManager.LoadScene("LevelFinished");
         //TODO: probably just load scene to a UI saying level complete
     }
     

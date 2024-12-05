@@ -9,12 +9,15 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerCombat playerCombat;
 
+    private Rigidbody2D _rb;
+
     public Animator animator;
     private static readonly int Speed = Animator.StringToHash("Speed");
 
 
     void Start()
     {
+        _rb = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<PlayerMovement>();
         playerCombat = GetComponent<PlayerCombat>();
     }
@@ -23,6 +26,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         MovementAnimation();
         CombatAnimation();
+        JumpingAnimation();
     }
 
     void MovementAnimation()
@@ -48,4 +52,11 @@ public class PlayerAnimation : MonoBehaviour
             animator.SetTrigger("Attack" + playerCombat.CurrentCombo);
         }
     }
+
+    void JumpingAnimation()
+    {
+        animator.SetBool("IsJumping", _rb.velocity.y > 0.1);
+        animator.SetBool("IsFalling", _rb.velocity.y < -0.1);
+    }
+    
 }

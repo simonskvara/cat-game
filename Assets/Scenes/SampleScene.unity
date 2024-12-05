@@ -1021,6 +1021,7 @@ MonoBehaviour:
   - {fileID: 1718668872}
   - {fileID: 296450187}
   - {fileID: 1723627779}
+  _chosenFood: []
   spawnedFood: []
 --- !u!1 &619394800
 GameObject:
@@ -1104,11 +1105,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &634119784 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9083915716918776420, guid: b7ee05c0573e78f45853f4c0ade37119, type: 3}
-  m_PrefabInstance: {fileID: 5357721198723556018}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &812703183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2757,18 +2753,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6761015562059739183, guid: b7ee05c0573e78f45853f4c0ade37119, type: 3}
   m_PrefabInstance: {fileID: 5357721198723556018}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &997216951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634119784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31f8ae5a7467e814ab4552f789224369, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1708968840
 GameObject:
   m_ObjectHideFlags: 0
@@ -3921,10 +3905,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9083915716918776420, guid: b7ee05c0573e78f45853f4c0ade37119, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 997216951}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7ee05c0573e78f45853f4c0ade37119, type: 3}
 --- !u!1001 &5898648303940798419
 PrefabInstance:

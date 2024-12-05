@@ -10,7 +10,7 @@ public class PlayerCombat : MonoBehaviour
 
     public bool IsAttacking { get; private set; }
 
-    public float damage;
+    public float attackDamage;
     
     [Header("Attack Point")]
     public Transform attackPoint;
@@ -23,6 +23,10 @@ public class PlayerCombat : MonoBehaviour
     public int CurrentCombo;
     private float comboTimer;
     public float comboResetTime = 1f;
+
+    [Header("Ground Smash")]
+    public float groundSmashDamage;
+    
     
     void Start()
     {
@@ -69,7 +73,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (var enemy in enemies)   
         {
             Debug.Log("Hit enemy");
-            enemy.GetComponent<EnemyHealth>().TakeDamage(damage);
+            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
         }
     }
     

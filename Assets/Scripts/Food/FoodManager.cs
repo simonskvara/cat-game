@@ -9,7 +9,7 @@ public class FoodManager : MonoBehaviour
     public FoodContainer foodContainer;
     public List<Transform> foodSpawnPoints;
 
-    private List<GameObject> _chosenFood;
+    [HideInInspector] public List<GameObject> _chosenFood;
 
     public List<GameObject> spawnedFood;
 

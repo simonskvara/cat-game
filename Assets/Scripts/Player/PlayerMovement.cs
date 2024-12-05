@@ -32,12 +32,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, jumpingPower);
+            JumpStart();
         }
         
         if (Input.GetKeyUp(KeyCode.Space) && _rb.velocity.y > 0)
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0f);
+            JumpCancel();
         }
 
         if (_canMove)
@@ -66,6 +66,18 @@ public class PlayerMovement : MonoBehaviour
         }
         _rb.velocity = new Vector2(MoveDirection.x * moveSpeed, _rb.velocity.y);
     }
+
+    void JumpStart()
+    {
+        _rb.velocity = new Vector2(_rb.velocity.x, jumpingPower);
+    }
+
+    void JumpCancel()
+    {
+        _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0f);
+    }
+    
+    
 
     void Flip()
     {
