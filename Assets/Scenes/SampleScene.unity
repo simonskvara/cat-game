@@ -2711,7 +2711,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3841,6 +3841,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6657991119171044895, guid: 0a3a04ac0d27d2d44a8edecd0dcbae4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6699708
+      objectReference: {fileID: 0}
     - target: {fileID: 7831311365764943365, guid: 0a3a04ac0d27d2d44a8edecd0dcbae4e, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
@@ -3864,7 +3868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6761015562059739183, guid: b7ee05c0573e78f45853f4c0ade37119, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6616
+      value: -0.6699708
       objectReference: {fileID: 0}
     - target: {fileID: 6761015562059739183, guid: b7ee05c0573e78f45853f4c0ade37119, type: 3}
       propertyPath: m_LocalPosition.z

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerCombat : MonoBehaviour
     public bool IsAttacking { get; private set; }
 
     public float attackDamage;
+    public float comboFinishDamage;
+    private float _originalDamage;
     
     [Header("Attack Point")]
     public Transform attackPoint;
@@ -20,17 +23,17 @@ public class PlayerCombat : MonoBehaviour
     [Header("Combo")] 
     public int maxCombo = 3;
 
-    public int CurrentCombo;
-    private float comboTimer;
+    public int CurrentCombo { get; private set; }
+    private float _comboTimer;
     public float comboResetTime = 1f;
 
-    [Header("Ground Smash")]
-    public float groundSmashDamage;
+    
     
     
     void Start()
     {
         _playerMovement = GetComponent<PlayerMovement>();
+        _originalDamage = attackDamage;
     }
 
     void Update()
@@ -40,28 +43,28 @@ public class PlayerCombat : MonoBehaviour
             OnAttack();
         }
         
+        attackDamage = CurrentCombo == 3 ? comboFinishDamage : _originalDamage;
+        
         if (CurrentCombo > 0)
         {
-            comboTimer += Time.deltaTime;
-            if (comboTimer > comboResetTime)
+            _comboTimer += Time.deltaTime;
+            if (_comboTimer > comboResetTime)
             {
                 ResetCombo();
             }
         }
-        
     }
-
-
+    
     private void OnAttack()
     {
         IsAttacking = true;
         
-        comboTimer = 0f; // Reset the combo timer
+        _comboTimer = 0f;
 
         CurrentCombo++;
         if (CurrentCombo > maxCombo)
         {
-            CurrentCombo = 1; // Loop back to the first attack
+            CurrentCombo = 1;
         }
     }
     
@@ -87,6 +90,7 @@ public class PlayerCombat : MonoBehaviour
     {
         CurrentCombo = 0;
     }
+    
     
     private void OnDrawGizmosSelected()
     {

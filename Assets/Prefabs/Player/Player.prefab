@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6761015562059739183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5316998959075062731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7227410507654994664}
+  m_Layer: 0
+  m_Name: SmashPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7227410507654994664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5316998959075062731}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6761015562059739183}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8459336064271740699
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,6 +110,7 @@ GameObject:
   - component: {fileID: 6379360708561597067}
   - component: {fileID: 5532120538993913226}
   - component: {fileID: 4979075668548053362}
+  - component: {fileID: 2787101540142006154}
   - component: {fileID: 3878874652689997986}
   m_Layer: 0
   m_Name: Player
@@ -102,6 +134,7 @@ Transform:
   m_Children:
   - {fileID: 7431809292493304258}
   - {fileID: 4128875048418511723}
+  - {fileID: 7227410507654994664}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7779473592959961643
@@ -331,15 +364,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 5
+  comboFinishDamage: 10
   attackPoint: {fileID: 4128875048418511723}
   attackRange: 0.4
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
   maxCombo: 3
-  CurrentCombo: 0
   comboResetTime: 2
-  groundSmashDamage: 0
+--- !u!114 &2787101540142006154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9083915716918776420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4cb5ce34d6d3f4fa54c1f6a5e5974f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 5532120538993913226}
+  rb: {fileID: 5617336822132320724}
+  groundSmashDamage: 20
+  smashPoint: {fileID: 7227410507654994664}
+  smashArea: {x: 1, y: 0.6}
+  fallingSpeed: 10
+  _smashFalling: 0
 --- !u!114 &3878874652689997986
 MonoBehaviour:
   m_ObjectHideFlags: 0
