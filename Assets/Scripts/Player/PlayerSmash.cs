@@ -15,11 +15,28 @@ public class PlayerSmash : MonoBehaviour
     
     public float fallingSpeed;
     public bool SmashFalling;
+    public bool SmashImpact;
 
+    [Header("When to smash")]
+    [HideInInspector] public Transform groundCheck;
+    [HideInInspector] public Vector2 groundCheckArea;
+    public LayerMask smashLayer;
+
+    private void Start()
+    {
+        groundCheck = playerMovement.groundCheck;
+        groundCheckArea = playerMovement.groundCheckArea;
+    }
 
     private void Update()
     {
-        if (SmashFalling && playerMovement.IsGrounded())
+        if (Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.Mouse0) && !playerMovement.IsGrounded())
+        {
+            OnSmashStarted();
+        }
+        
+        
+        if (SmashFalling && ShouldSmash())
         {
             Smash();
         }
@@ -35,8 +52,10 @@ public class PlayerSmash : MonoBehaviour
 
     private void OnSmashStarted()
     {
-        playerMovement.StopMovement();
         SmashFalling = true;
+        playerMovement.StopMovement();
+        //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Platform"), true);
+        gameObject.layer = LayerMask.NameToLayer("PlatformCollision");
     }
 
     private void SmashFall()
@@ -47,15 +66,33 @@ public class PlayerSmash : MonoBehaviour
     private void Smash()
     {
         SmashFalling = false;
+        SmashImpact = true;
+        
+        //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Platform"), false);
+        gameObject.layer = LayerMask.NameToLayer("Player");
         
         Collider2D[] colliders = Physics2D.OverlapBoxAll(smashPoint.transform.position, smashArea, 0);
 
-        foreach (var enemy in colliders)
+        foreach (var hit in colliders)
         {
-            Debug.Log("Enemy Smashed");
+            EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
+            if (enemy)
+            {
+                enemy.TakeDamage(groundSmashDamage);
+                Debug.Log("Enemy Smashed");
+            }
         }
     }
-    
+
+    public void ImpactEnd()
+    {
+        SmashImpact = false;
+    }
+
+    bool ShouldSmash()
+    {
+        return Physics2D.OverlapBox(groundCheck.position, groundCheckArea, 0, smashLayer);
+    }
     
     private void OnDrawGizmosSelected()
     {

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7431809292493304258}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7227410507654994664}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SmashPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4128875048418511723}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,14 +105,13 @@ GameObject:
   - component: {fileID: 7779473592959961643}
   - component: {fileID: 3307332454215903427}
   - component: {fileID: 5617336822132320724}
-  - component: {fileID: 8618228394093709776}
   - component: {fileID: 5506771451459260069}
   - component: {fileID: 6379360708561597067}
   - component: {fileID: 5532120538993913226}
   - component: {fileID: 4979075668548053362}
   - component: {fileID: 2787101540142006154}
   - component: {fileID: 3878874652689997986}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -237,51 +236,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &8618228394093709776
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9083915716918776420}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0018196106, y: 0.0085918605}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.3}
-    oldSize: {x: 3.3333333, y: 3.3333333}
-    newSize: {x: 0.12, y: 0.14}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4170494, y: 0.649483}
-  m_EdgeRadius: 0
 --- !u!70 &5506771451459260069
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -331,6 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 5532120538993913226}
   playerCombat: {fileID: 4979075668548053362}
+  playerSmash: {fileID: 2787101540142006154}
   animator: {fileID: 7779473592959961643}
 --- !u!114 &5532120538993913226
 MonoBehaviour:
@@ -350,7 +305,7 @@ MonoBehaviour:
   groundCheckArea: {x: 0.32, y: 0.1}
   groundCheckLayer:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 1216
 --- !u!114 &4979075668548053362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +345,13 @@ MonoBehaviour:
   smashPoint: {fileID: 7227410507654994664}
   smashArea: {x: 1, y: 0.6}
   fallingSpeed: 10
-  _smashFalling: 0
+  SmashFalling: 0
+  SmashImpact: 0
+  groundCheck: {fileID: 0}
+  groundCheckArea: {x: 0, y: 0}
+  smashLayer:
+    serializedVersion: 2
+    m_Bits: 1088
 --- !u!114 &3878874652689997986
 MonoBehaviour:
   m_ObjectHideFlags: 0

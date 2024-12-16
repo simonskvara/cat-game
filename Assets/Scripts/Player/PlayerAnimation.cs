@@ -8,6 +8,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerCombat playerCombat;
+    [SerializeField] private PlayerSmash playerSmash;
 
     private Rigidbody2D _rb;
 
@@ -27,6 +28,7 @@ public class PlayerAnimation : MonoBehaviour
         MovementAnimation();
         CombatAnimation();
         JumpingAnimation();
+        SmashAnimation();
     }
 
     void MovementAnimation()
@@ -57,6 +59,12 @@ public class PlayerAnimation : MonoBehaviour
     {
         animator.SetBool("IsJumping", _rb.velocity.y > 0.1);
         animator.SetBool("IsFalling", _rb.velocity.y < -0.1);
+    }
+
+    void SmashAnimation()
+    {
+        animator.SetBool("SmashFalling", playerSmash.SmashFalling);
+        animator.SetBool("SmashImpact", playerSmash.SmashImpact);
     }
     
 }
