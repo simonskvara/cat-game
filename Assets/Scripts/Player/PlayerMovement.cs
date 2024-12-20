@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
 
-        if (_canMove)
+        if (_canMove && !PauseMenu.GameIsPaused)
         {
             MoveDirection = new Vector2(moveX, 0);
         }

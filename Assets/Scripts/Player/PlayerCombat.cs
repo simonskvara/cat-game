@@ -38,7 +38,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && _playerMovement.IsGrounded() && !IsAttacking)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _playerMovement.IsGrounded() && !IsAttacking && !PauseMenu.GameIsPaused)
         {
             OnAttack();
         }

@@ -89,6 +89,11 @@ public class PlayerSmash : MonoBehaviour
         SmashImpact = false;
     }
 
+    public void InterruptSmashFall()
+    {
+        SmashFalling = false;
+    }
+
     bool ShouldSmash()
     {
         return Physics2D.OverlapBox(groundCheck.position, groundCheckArea, 0, smashLayer);

@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 5506771451459260069}
   - component: {fileID: 6379360708561597067}
   - component: {fileID: 5532120538993913226}
+  - component: {fileID: 7421291428616601967}
   - component: {fileID: 4979075668548053362}
   - component: {fileID: 2787101540142006154}
   - component: {fileID: 3878874652689997986}
@@ -286,6 +287,7 @@ MonoBehaviour:
   playerMovement: {fileID: 5532120538993913226}
   playerCombat: {fileID: 4979075668548053362}
   playerSmash: {fileID: 2787101540142006154}
+  playerHealth: {fileID: 7421291428616601967}
   animator: {fileID: 7779473592959961643}
 --- !u!114 &5532120538993913226
 MonoBehaviour:
@@ -306,6 +308,22 @@ MonoBehaviour:
   groundCheckLayer:
     serializedVersion: 2
     m_Bits: 1216
+--- !u!114 &7421291428616601967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9083915716918776420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e103501c4830d4a93bad92dcf1faa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 5532120538993913226}
+  hearts: []
+  _currentHealth: 0
+  deathScreen: {fileID: 0}
 --- !u!114 &4979075668548053362
 MonoBehaviour:
   m_ObjectHideFlags: 0

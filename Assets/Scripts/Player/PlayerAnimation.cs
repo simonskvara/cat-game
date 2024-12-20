@@ -9,6 +9,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerCombat playerCombat;
     [SerializeField] private PlayerSmash playerSmash;
+    [SerializeField] private PlayerHealth playerHealth;
 
     private Rigidbody2D _rb;
 
@@ -29,6 +30,7 @@ public class PlayerAnimation : MonoBehaviour
         CombatAnimation();
         JumpingAnimation();
         SmashAnimation();
+        DeathAnimation();
     }
 
     void MovementAnimation()
@@ -65,6 +67,11 @@ public class PlayerAnimation : MonoBehaviour
     {
         animator.SetBool("SmashFalling", playerSmash.SmashFalling);
         animator.SetBool("SmashImpact", playerSmash.SmashImpact);
+    }
+
+    void DeathAnimation()
+    {
+        animator.SetBool("IsDead", playerHealth.IsDead());
     }
     
 }
