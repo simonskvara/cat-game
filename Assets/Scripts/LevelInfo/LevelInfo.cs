@@ -7,6 +7,7 @@ using UnityEngine;
 public class LevelInfo : ScriptableObject
 {
     public string levelName;
+    public string nextLevelName;
     public List<DisplayFoodData> collectedFood;
 }
 

@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        gameIsPaused = false;
         pauseMenu.SetActive(false);
         animator = pauseMenu.GetComponent<Animator>();
     }
@@ -37,7 +38,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         gameIsPaused = false;
-        StartCoroutine(TurnOff(1f));
+        StartCoroutine(TurnOff(0.5f));
         animator.SetBool("GameIsPaused", false);
     }
 

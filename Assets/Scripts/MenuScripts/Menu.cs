@@ -14,13 +14,11 @@ public class Menu : MonoBehaviour
     {
         Time.timeScale = 1;
         StartCoroutine(Transition(sceneName));
-        //SceneManager.LoadScene(sceneName);
     }
 
     public void ReloadScene()
     {
         Time.timeScale = 1;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         StartCoroutine(Transition(SceneManager.GetActiveScene().name));
     }
 

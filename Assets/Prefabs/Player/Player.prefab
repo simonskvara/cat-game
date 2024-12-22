@@ -361,7 +361,7 @@ MonoBehaviour:
   rb: {fileID: 5617336822132320724}
   groundSmashDamage: 20
   smashPoint: {fileID: 7227410507654994664}
-  smashArea: {x: 1, y: 0.6}
+  smashArea: {x: 1.2, y: 0.6}
   fallingSpeed: 10
   SmashFalling: 0
   SmashImpact: 0
@@ -384,3 +384,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: 
   levelInfoSO: {fileID: 11400000, guid: 13dbef73a05b1ad44b4e978a4b94f012, type: 2}
+  nextLevel: 

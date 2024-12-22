@@ -16,6 +16,7 @@ public class PlayerLevelCompletion : MonoBehaviour
     [Header("Level Information")]
     public string levelName;
     public LevelInfo levelInfoSO;
+    public string nextLevel;
     
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class PlayerLevelCompletion : MonoBehaviour
     private void Start()
     {
         _menuScript = FindObjectOfType<Menu>();
+        levelInfoSO.nextLevelName = nextLevel;
         Invoke(nameof(UpdateLevelInfo), 0.1f);
     }
     

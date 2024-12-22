@@ -14,7 +14,11 @@ public class FoodItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _foodManager.spawnedFood.Remove(gameObject);
-        Destroy(gameObject);
+        if (other.CompareTag("Player"))
+        {
+            _foodManager.spawnedFood.Remove(gameObject);
+            Destroy(gameObject);
+        }
+        
     }
 }
