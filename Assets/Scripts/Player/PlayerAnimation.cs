@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(PlayerMovement))]
 public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
@@ -16,6 +16,18 @@ public class PlayerAnimation : MonoBehaviour
     public Animator animator;
     private static readonly int Speed = Animator.StringToHash("Speed");
 
+
+    private void OnEnable()
+    {
+        playerHealth.OnDeath += DeathAnimation;
+        playerHealth.OnHit += HitAnimation;
+    }   
+
+    private void OnDisable()
+    {
+        playerHealth.OnDeath -= DeathAnimation;
+        playerHealth.OnHit -= HitAnimation;
+    }
 
     void Start()
     {
@@ -30,7 +42,6 @@ public class PlayerAnimation : MonoBehaviour
         CombatAnimation();
         JumpingAnimation();
         SmashAnimation();
-        DeathAnimation();
     }
 
     void MovementAnimation()
@@ -72,6 +83,11 @@ public class PlayerAnimation : MonoBehaviour
     void DeathAnimation()
     {
         animator.SetBool("IsDead", playerHealth.IsDead());
+    }
+
+    void HitAnimation()
+    {
+        animator.SetTrigger("Hit");
     }
     
 }

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: LevelInfo
   m_EditorClassIdentifier: 
   levelName: Level 1
-  nextLevelName: 
+  nextLevelName: Level2
   collectedFood:
-  - foodName: Shrimp
-    foodSprite: {fileID: 21300000, guid: 985597bbbc7244d498f703f1aacd7bd1, type: 3}
-  - foodName: Marmalade
-    foodSprite: {fileID: 21300000, guid: 293ac173061e0604ea4558bfea4a7556, type: 3}
+  - foodName: Pumpkin Pie
+    foodSprite: {fileID: 21300000, guid: 53d713e2bb1edea46bb0eeb026a0b8f3, type: 3}
+  - foodName: Sushi
+    foodSprite: {fileID: 21300000, guid: bb9b403a09d51c843b28ea8a651bf00a, type: 3}
+  - foodName: Waffles
+    foodSprite: {fileID: 21300000, guid: 8013fda50b61a74488eb2ed3eaf95388, type: 3}
   - foodName: Potato
     foodSprite: {fileID: 21300000, guid: d16f25dbdeec74b42a86177931b29b29, type: 3}
-  - foodName: FishFillet
-    foodSprite: {fileID: 21300000, guid: 3cdc00878a634ce4982bc32929bcfc82, type: 3}

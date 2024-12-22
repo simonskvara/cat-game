@@ -14,8 +14,8 @@ public class PlayerSmash : MonoBehaviour
     public Vector2 smashArea;
     
     public float fallingSpeed;
-    public bool SmashFalling;
-    public bool SmashImpact;
+    public bool SmashFalling { get; private set; }
+    public bool SmashImpact { get; private set; }
 
     [Header("When to smash")]
     [HideInInspector] public Transform groundCheck;

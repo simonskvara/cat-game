@@ -16,7 +16,9 @@ public class PlayerHealth : MonoBehaviour
     
     private bool _isDead;
 
-
+    public event Action OnHit;
+    public event Action OnDeath;
+    
     private void Start()
     {
         _currentHealth = 3;
@@ -45,11 +47,13 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage()
     {
+        OnHit?.Invoke();
         _currentHealth--;
     }
 
     private void Die()
     {
+        OnDeath?.Invoke();
         playerMovement.StopMovement();
         _isDead = true;
         StartCoroutine(DeathScreen());
@@ -64,6 +68,5 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1);
         deathScreen.SetActive(true);
-        Time.timeScale = 0;
     }
 }

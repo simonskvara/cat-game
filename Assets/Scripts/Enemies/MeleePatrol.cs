@@ -5,37 +5,52 @@ using UnityEngine;
 
 public class MeleePatrol : MonoBehaviour
 {
-    public GameObject pointA;
-    public GameObject pointB;
-    
     private Rigidbody2D _rb;
     private Animator _animator;
     private Transform _currentPoint;
+    
+    [Header("Patrolling")]
+    public GameObject pointA;
+    public GameObject pointB;
+    
+    public enum FirstPoint
+    {
+        PointA, PointB
+    }
+    public FirstPoint firstPoint;
     
     public float moveSpeed;
     public float pointOffset;
     public float waitTime;
 
+    [Header("Attack")] 
+    public float attackRadius;
+    public Transform attackPoint;
+    
     private bool _isRunning;
     private bool _isWaiting;
+    private bool _isDead;
+    private bool _isAttacking;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _currentPoint = pointB.transform;
+        
+        _currentPoint = firstPoint == FirstPoint.PointA ? pointA.transform : pointB.transform;
+        
         _isRunning = true;
+        _isDead = false;
     }
 
     private void Update()
     {
         _animator.SetBool("IsRunning", _isRunning);
 
-        if (!_isWaiting)
+        if (!_isWaiting && _isRunning && !_isDead)
         {
             Patrol();
         }
-        
         
     }
 
@@ -80,6 +95,20 @@ public class MeleePatrol : MonoBehaviour
         _isWaiting = false;
     }
 
+    public void Dead()
+    {
+        _rb.velocity = Vector2.zero;
+        _isRunning = false;
+        _isDead = true;
+        _animator.SetBool("Dead", true);
+    }
+
+    public void Hit()
+    {
+        _rb.velocity = Vector2.zero;
+        _animator.SetTrigger("Hit");
+    }
+    
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(pointA.transform.position, pointOffset);

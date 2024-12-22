@@ -14,9 +14,11 @@ public class PlayerLevelCompletion : MonoBehaviour
     private Menu _menuScript;
 
     [Header("Level Information")]
-    public string levelName;
     public LevelInfo levelInfoSO;
+    public string levelName;
+    [Tooltip("Leave if there is no next level")]
     public string nextLevel;
+    public int levelIndex;
     
     private void Awake()
     {
@@ -61,6 +63,10 @@ public class PlayerLevelCompletion : MonoBehaviour
     private void CompleteLevel()
     {
         _pressedComplete = true;
+        
+        PlayerPrefs.SetInt($"Level_{levelIndex}_Completed", 1);
+        PlayerPrefs.Save();
+        
         _menuScript.LoadScene("LevelFinished");
     }
     

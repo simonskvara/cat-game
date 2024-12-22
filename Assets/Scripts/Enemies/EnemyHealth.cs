@@ -7,8 +7,10 @@ public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 10f;
     private float _currentHealth;
+    private bool _isDead;
 
     public UnityEvent onDeath = new UnityEvent();
+    public UnityEvent onHit = new UnityEvent();
     
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_currentHealth <= 0)
+        if (_currentHealth <= 0 && !_isDead)
         {
             Die();
         }
@@ -28,13 +30,14 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _currentHealth -= damage;
+        onHit?.Invoke();
     }
 
     private void Die()
     {
-        Debug.Log("Enemy died");
-        onDeath.Invoke(); // not yet used for anything
+        onDeath.Invoke();
+        _isDead = true;
         // TODO: instantiate death animation
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
