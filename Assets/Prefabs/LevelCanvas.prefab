@@ -2359,6 +2359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 6720999004523501772}
   animator: {fileID: 0}
+  turnOffDelay: 0.5
 --- !u!1 &7918749946437743716
 GameObject:
   m_ObjectHideFlags: 0

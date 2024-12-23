@@ -4459,6 +4459,10 @@ PrefabInstance:
       value: FoodManager
       objectReference: {fileID: 0}
     - target: {fileID: 4736004456198980382, guid: 4248d53dc48db9940b7106eb12007d6d, type: 3}
+      propertyPath: foodSpawnPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736004456198980382, guid: 4248d53dc48db9940b7106eb12007d6d, type: 3}
       propertyPath: foodSpawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 202897628}

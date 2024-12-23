@@ -79,7 +79,6 @@ public class PlayerSmash : MonoBehaviour
             if (enemy)
             {
                 enemy.TakeDamage(groundSmashDamage);
-                Debug.Log("Enemy Smashed");
             }
         }
     }

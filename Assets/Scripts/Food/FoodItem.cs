@@ -6,6 +6,7 @@ using UnityEngine;
 public class FoodItem : MonoBehaviour
 {
     private FoodManager _foodManager;
+    public string foodName;
 
     private void Start()
     {

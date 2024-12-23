@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 10f;
+    public GameObject deadEnemy;
     private float _currentHealth;
     private bool _isDead;
 
@@ -37,7 +38,9 @@ public class EnemyHealth : MonoBehaviour
     {
         onDeath.Invoke();
         _isDead = true;
+        GameObject spawnedDeadEnemy = Instantiate(deadEnemy, gameObject.transform.position, Quaternion.identity);
+        spawnedDeadEnemy.transform.localScale = transform.localScale;
         // TODO: instantiate death animation
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

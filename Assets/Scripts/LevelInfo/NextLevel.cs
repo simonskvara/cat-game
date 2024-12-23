@@ -17,6 +17,7 @@ public class NextLevel : MonoBehaviour
             nextLevelButton.interactable = false;
             return;
         }
+        
         nextLevelButton.onClick.AddListener(OnButtonClicked);
     }
 

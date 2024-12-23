@@ -82,7 +82,7 @@ public class PlayerAnimation : MonoBehaviour
 
     void DeathAnimation()
     {
-        animator.SetBool("IsDead", playerHealth.IsDead());
+        animator.SetBool("IsDead", true);
     }
 
     void HitAnimation()

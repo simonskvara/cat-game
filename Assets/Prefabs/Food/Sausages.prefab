@@ -56,9 +56,13 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2202994664472265857, guid: 2e62f4e91f306514fae1a2a6bda40e7a, type: 3}
+      propertyPath: foodName
+      value: Sausages
+      objectReference: {fileID: 0}
     - target: {fileID: 4689673723162714675, guid: 2e62f4e91f306514fae1a2a6bda40e7a, type: 3}
       propertyPath: m_Name
-      value: Waffles 5
+      value: Sausages
       objectReference: {fileID: 0}
     - target: {fileID: 5450618868409538246, guid: 2e62f4e91f306514fae1a2a6bda40e7a, type: 3}
       propertyPath: m_Sprite

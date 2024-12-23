@@ -16,7 +16,7 @@ public class PlayerLevelCompletion : MonoBehaviour
     [Header("Level Information")]
     public LevelInfo levelInfoSO;
     public string levelName;
-    [Tooltip("Leave if there is no next level")]
+    [Tooltip("Leave empty if there is no next level")]
     public string nextLevel;
     public int levelIndex;
     
@@ -48,11 +48,11 @@ public class PlayerLevelCompletion : MonoBehaviour
         
         foreach (var food in _foodManager.spawnedFood)
         {
-            string fixedFoodName = food.name.Replace("(Clone)", "").Trim();
+            string spawnedFoodName = food.GetComponent<FoodItem>().foodName;
 
             DisplayFoodData foodData = new DisplayFoodData
             {
-                foodName = fixedFoodName,
+                foodName = spawnedFoodName,
                 foodSprite = food.GetComponent<SpriteRenderer>().sprite
             };
             

@@ -45,10 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodContainer: {fileID: 11400000, guid: f07f5c08951e39d43ac577b006786b82, type: 2}
-  foodSpawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  foodSpawnPoints: []
   _chosenFood: []
   spawnedFood: []
