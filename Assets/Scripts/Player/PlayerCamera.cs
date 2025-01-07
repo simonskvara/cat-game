@@ -9,7 +9,10 @@ public class PlayerCamera : MonoBehaviour
     
     void Awake()
     {
-        virtualCamera.Follow = GameObject.FindGameObjectWithTag("Player").transform;
+        if (virtualCamera.Follow != null)
+        {
+            virtualCamera.Follow = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
     
 }

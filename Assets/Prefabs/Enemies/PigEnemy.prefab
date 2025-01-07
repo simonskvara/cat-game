@@ -199,19 +199,7 @@ MonoBehaviour:
   deadEnemy: {fileID: 2312913768246224416, guid: 25d6dce64a70d83488d137e21f5c7968, type: 3}
   onDeath:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9161937528254067312}
-        m_TargetAssemblyTypeName: MeleePatrol, Assembly-CSharp
-        m_MethodName: Dead
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onHit:
     m_PersistentCalls:
       m_Calls:
