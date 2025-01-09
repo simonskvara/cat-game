@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     
     public Image[] hearts;
 
-    [SerializeField] private int _currentHealth;
+    private int _currentHealth;
     
     public bool IsDead { get; private set; }
 

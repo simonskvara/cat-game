@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,6 +22,34 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 groundCheckArea;
     public LayerMask groundCheckLayer;
     
+    private PlayerControls _playerControls;
+
+    private void Awake()
+    {
+        _playerControls = new PlayerControls();
+    }
+
+    private void OnEnable()
+    {
+        _playerControls.Player.Enable();
+        _playerControls.Player.Move.performed += ProcessInput;
+        _playerControls.Player.Move.canceled += ProcessInput;
+
+        _playerControls.Player.Jump.performed += OnJump;
+        _playerControls.Player.Jump.canceled += OnJump;
+    }
+
+    private void OnDisable()
+    {
+        _playerControls.Player.Move.performed -= ProcessInput;
+        _playerControls.Player.Move.canceled -= ProcessInput;
+        
+        _playerControls.Player.Jump.performed -= OnJump;
+        _playerControls.Player.Jump.canceled -= OnJump;
+        
+        _playerControls.Player.Disable();
+    }
+
     private void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody2D>();
@@ -28,18 +57,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        ProcessInput();
-
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-        {
-            JumpStart();
-        }
-        
-        if (Input.GetKeyUp(KeyCode.Space) && _rb.velocity.y > 0)
-        {
-            JumpCancel();
-        }
-
         if (_canMove)
         {
             Flip();
@@ -48,40 +65,37 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!_canMove || PauseMenu.gameIsPaused)
+        {
+            return;
+        }
         Move();
     }
 
-    void ProcessInput()
+    void ProcessInput(InputAction.CallbackContext context)
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-
-        if (_canMove && !PauseMenu.gameIsPaused)
-        {
-            MoveDirection = new Vector2(moveX, 0);
-        }
+        float moveX = _playerControls.Player.Move.ReadValue<Vector2>().x;
+        MoveDirection = new Vector2(moveX, 0);
     }
 
     void Move()
     {
-        if (!_canMove)
-        {
-            return;
-        }
         _rb.velocity = new Vector2(MoveDirection.x * moveSpeed, _rb.velocity.y);
     }
 
-    void JumpStart()
+    void OnJump(InputAction.CallbackContext context)
     {
-        _rb.velocity = new Vector2(_rb.velocity.x, jumpingPower);
-    }
+        if (context.performed && IsGrounded())
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, jumpingPower);
+        }
 
-    void JumpCancel()
-    {
-        _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0f);
+        if (context.canceled && _rb.velocity.y > 0)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0f);
+        }
     }
     
-    
-
     void Flip()
     {
         if (_isFacingRight && MoveDirection.x < 0 || !_isFacingRight && MoveDirection.x > 0)

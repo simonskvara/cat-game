@@ -22,6 +22,24 @@ public class PlayerSmash : MonoBehaviour
     [HideInInspector] public Vector2 groundCheckArea;
     public LayerMask smashLayer;
 
+
+    private PlayerControls _playerControls;
+
+    private void Awake()
+    {
+        _playerControls = new PlayerControls();
+    }
+
+    private void OnEnable()
+    {
+        _playerControls.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _playerControls.Player.Disable();
+    }
+
     private void Start()
     {
         groundCheck = playerMovement.groundCheck;
