@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 4979075668548053362}
   - component: {fileID: 2787101540142006154}
   - component: {fileID: 3878874652689997986}
-  - component: {fileID: 5967710072952650304}
+  - component: {fileID: 5947899160581707039}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -326,7 +326,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _currentHealth: 0
   deathScreen: {fileID: 0}
 --- !u!114 &4979075668548053362
 MonoBehaviour:
@@ -388,7 +387,7 @@ MonoBehaviour:
   levelName: 
   nextLevel: 
   levelIndex: 0
---- !u!114 &5967710072952650304
+--- !u!114 &5947899160581707039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

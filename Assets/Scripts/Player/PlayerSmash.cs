@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerSmash : MonoBehaviour
 {
@@ -33,11 +34,13 @@ public class PlayerSmash : MonoBehaviour
     private void OnEnable()
     {
         _playerControls.Player.Enable();
+        _playerControls.Player.Attack.performed += OnSmashStarted;
     }
 
     private void OnDisable()
     {
         _playerControls.Player.Disable();
+        _playerControls.Player.Attack.performed -= OnSmashStarted;
     }
 
     private void Start()
@@ -48,12 +51,6 @@ public class PlayerSmash : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.Mouse0) && !playerMovement.IsGrounded())
-        {
-            OnSmashStarted();
-        }
-        
-        
         if (SmashFalling && ShouldSmash())
         {
             Smash();
@@ -68,12 +65,15 @@ public class PlayerSmash : MonoBehaviour
         }
     }
 
-    private void OnSmashStarted()
+    private void OnSmashStarted(InputAction.CallbackContext context)
     {
-        SmashFalling = true;
-        playerMovement.StopMovement();
-        //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Platform"), true);
-        gameObject.layer = LayerMask.NameToLayer("PlatformCollision");
+        if (playerMovement.MoveDirection.y < -0.1f && Math.Abs(playerMovement.MoveDirection.x) < 0.5f &&
+            !playerMovement.IsGrounded() && !SmashFalling)
+        {
+            SmashFalling = true;
+            playerMovement.StopMovement();
+            gameObject.layer = LayerMask.NameToLayer("PlatformCollision");
+        }
     }
 
     private void SmashFall()
@@ -86,7 +86,6 @@ public class PlayerSmash : MonoBehaviour
         SmashFalling = false;
         SmashImpact = true;
         
-        //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Platform"), false);
         gameObject.layer = LayerMask.NameToLayer("Player");
         
         Collider2D[] colliders = Physics2D.OverlapBoxAll(smashPoint.transform.position, smashArea, 0);

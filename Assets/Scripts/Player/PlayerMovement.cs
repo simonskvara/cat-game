@@ -74,8 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
     void ProcessInput(InputAction.CallbackContext context)
     {
-        float moveX = _playerControls.Player.Move.ReadValue<Vector2>().x;
-        MoveDirection = new Vector2(moveX, 0);
+        MoveDirection = _playerControls.Player.Move.ReadValue<Vector2>();
     }
 
     void Move()
