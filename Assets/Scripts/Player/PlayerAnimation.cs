@@ -50,8 +50,10 @@ public class PlayerAnimation : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
-        
-        animator.SetFloat("Speed", playerMovement.MoveDirection.magnitude);
+        else
+        {
+            animator.SetFloat("Speed", Math.Abs(playerMovement.MoveDirection.x));
+        }
     }
 
     void CombatAnimation()

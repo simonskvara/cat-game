@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Flip()
     {
-        if (_isFacingRight && MoveDirection.x < 0 || !_isFacingRight && MoveDirection.x > 0)
+        if (_isFacingRight && MoveDirection.x < 0 || !_isFacingRight && MoveDirection.x > 0 && _canMove)
         {
             _isFacingRight = !_isFacingRight;
             Vector2 localScale = transform.localScale;
