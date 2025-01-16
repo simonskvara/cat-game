@@ -7,19 +7,14 @@ using UnityEngine.Serialization;
 
 public class Menu : MonoBehaviour
 {
-    [HideInInspector] public Animator transitionAnimator;
-    [HideInInspector] public float transitionTime;
-    
     public void LoadScene(string sceneName)
     {
-        Time.timeScale = 1;
-        StartCoroutine(Transition(sceneName));
+        GameManager.Instance.LevelLoader(sceneName);
     }
 
     public void ReloadScene()
     {
-        Time.timeScale = 1;
-        StartCoroutine(Transition(SceneManager.GetActiveScene().name));
+        GameManager.Instance.LevelLoader(SceneManager.GetActiveScene().name);
     }
 
     public void OpenURL(string url)
@@ -31,12 +26,4 @@ public class Menu : MonoBehaviour
     {
         Application.Quit();
     }
-
-    IEnumerator Transition(string sceneName)
-    {
-        transitionAnimator.SetTrigger("Start");
-        yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadSceneAsync(sceneName);
-    }
-    
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelLoader : MonoBehaviour
+public class LevelTransition : MonoBehaviour
 {
     private Menu _menuScript;
     public Animator transition;
@@ -11,8 +11,10 @@ public class LevelLoader : MonoBehaviour
 
     private void Start()
     {
-        _menuScript = FindObjectOfType<Menu>();
+        GameManager.Instance.transitionAnimator = transition;
+        GameManager.Instance.transitionTime = transitionTime;
+        /*_menuScript = FindObjectOfType<Menu>();
         _menuScript.transitionAnimator = transition;
-        _menuScript.transitionTime = transitionTime;
+        _menuScript.transitionTime = transitionTime;*/
     }
 }
