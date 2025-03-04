@@ -387,6 +387,7 @@ MonoBehaviour:
   levelName: 
   nextLevel: 
   levelIndex: 0
+  timeScores: {fileID: 11400000, guid: 88db5caae99f7aa4d80567dec4d7f380, type: 2}
 --- !u!114 &5947899160581707039
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,8 +12,6 @@ public class PlayerLevelCompletion : MonoBehaviour
 
     private FoodManager _foodManager;
 
-    private Menu _menuScript;
-
     [Header("Level Information")]
     public LevelInfo levelInfoSO;
     public string levelName;
@@ -23,6 +21,8 @@ public class PlayerLevelCompletion : MonoBehaviour
 
     private PlayerControls _playerControls;
     private InputAction _interact;
+
+    [Header("TimeInfo")] public TimeScores timeScores;
     
     private void Awake()
     {
@@ -44,7 +44,6 @@ public class PlayerLevelCompletion : MonoBehaviour
 
     private void Start()
     {
-        _menuScript = FindObjectOfType<Menu>();
         levelInfoSO.nextLevelName = nextLevel;
         Invoke(nameof(UpdateLevelInfo), 0.1f);
     }
@@ -77,8 +76,15 @@ public class PlayerLevelCompletion : MonoBehaviour
         
             PlayerPrefs.SetInt($"Level_{levelIndex}_Completed", 1);
             PlayerPrefs.Save();
-        
-            _menuScript.LoadScene("LevelFinished");
+            
+            Timer.Instance.TurnOffTimer();
+
+            if (nextLevel == "")
+            {
+                RecordTime();
+            }
+            
+            GameManager.Instance.LevelLoader("LevelFinished");
         }
     }
     
@@ -95,6 +101,21 @@ public class PlayerLevelCompletion : MonoBehaviour
         if (other.CompareTag("Door"))
         {
             _canComplete = false;
+        }
+    }
+
+    private void RecordTime()
+    {
+        float currentBestTime = Timer.Instance.timeScores.bestTotalTime;
+
+        if (currentBestTime == 0)
+        {
+            Timer.Instance.RecordTime();
+        }
+        
+        if (Timer.Instance.TotalTime < currentBestTime && Timer.Instance.TotalTime != 0)
+        {
+            Timer.Instance.RecordTime();
         }
     }
 }
