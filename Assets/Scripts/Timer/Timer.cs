@@ -13,6 +13,8 @@ public class Timer : MonoBehaviour
     public float TotalTime { get; private set; }
 
     private bool _canTime;
+
+    private bool _isSpeedrun;
     
     public bool CanRecordTime { get; private set; }
 
@@ -55,13 +57,16 @@ public class Timer : MonoBehaviour
             case "MainMenu":
                 _canTime = false;
                 CanRecordTime = false;
+                _isSpeedrun = false;
                 TotalTime = 0;
                 break;
             case "Level1":
                 _canTime = true;
+                _isSpeedrun = true;
                 CanRecordTime = true;
                 break;
             default:
+                if (_isSpeedrun) _canTime = true;
                 break;
         }
         
